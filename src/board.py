@@ -31,3 +31,8 @@ class Board:
         if not self.validate(row, col):
             return None
         return self.__board[row][col]
+
+    def move(self, row_start: int, col_start: int, row_end: int, col_end: int):
+        self.__board[row_end][col_end] = self.get_item(row_start, col_start)
+        self.__board[row_start][col_start] = None
+        self.__color = self.__color.get_opponent()

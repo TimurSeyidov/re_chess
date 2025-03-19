@@ -1,4 +1,21 @@
-class BlackColor:
+class Color:
+    def __eq__(self, other):
+        return self.__class__.__name__ == other.__class__.__name__
+
+    @staticmethod
+    def is_white() -> bool:
+        return False
+
+    @staticmethod
+    def is_black() -> bool:
+        return False
+
+    @staticmethod
+    def get_opponent():
+        return Color()
+
+
+class BlackColor(Color):
     @staticmethod
     def is_white() -> bool:
         return False
@@ -9,9 +26,10 @@ class BlackColor:
 
     @staticmethod
     def get_opponent():
-        return WhiteColor
+        return WhiteColor()
 
-class WhiteColor:
+
+class WhiteColor(Color):
     @staticmethod
     def is_white() -> bool:
         return True
@@ -22,4 +40,4 @@ class WhiteColor:
 
     @staticmethod
     def get_opponent():
-        return BlackColor
+        return BlackColor()
